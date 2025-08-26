@@ -69,7 +69,9 @@
 
 ## 部署
 
-本项目为防盗卖触发商业行为造成合规风险，采用一机一码的形式，授权码需要在 [自助授权机器人](https://t.me/moontv_auth_bot) 处申请，授权码和 tg 号绑定
+本项目，删除了采用一机一码的验证，但是需要输入AUTH_TOKEN。
+
+另外，项目启动时会提示“免费使用，倒卖的***”等字样。
 
 本项目**仅支持 Docker 或其他基于 Docker 的平台** 部署。
 
@@ -78,7 +80,7 @@
 ```yml
 services:
   moontv-core:
-    image: ghcr.io/moontechlab/lunatv:latest
+    image: y40oovnf6/moontv-core:4.3.0
     container_name: moontv-core
     restart: on-failure
     ports:
@@ -88,7 +90,7 @@ services:
       - PASSWORD=admin_password
       - NEXT_PUBLIC_STORAGE_TYPE=kvrocks
       - KVROCKS_URL=redis://moontv-kvrocks:6666
-      - AUTH_TOKEN=授权码
+      - AUTH_TOKEN=114514
     networks:
       - moontv-network
     depends_on:
