@@ -69,7 +69,7 @@
 
 ## 部署
 
-本项目，删除了采用一机一码的验证，但是需要输入AUTH_TOKEN。
+本项目，删除了采用一机一码的验证，但还是需要输入AUTH_TOKEN，下方示例的114514可用。
 
 另外，项目启动时会提示“免费使用，倒卖的***”等字样。
 
@@ -125,7 +125,7 @@ services:
       - PASSWORD=admin_password
       - NEXT_PUBLIC_STORAGE_TYPE=redis
       - REDIS_URL=redis://moontv-redis:6379
-      - AUTH_TOKEN=授权码
+      - AUTH_TOKEN=114514
     networks:
       - moontv-network
     depends_on:
@@ -163,7 +163,7 @@ services:
       - NEXT_PUBLIC_STORAGE_TYPE=upstash
       - UPSTASH_URL=上面 https 开头的 HTTPS ENDPOINT
       - UPSTASH_TOKEN=上面的 TOKEN
-      - AUTH_TOKEN=授权码
+      - AUTH_TOKEN=114514
 ```
 
 ## 配置文件
